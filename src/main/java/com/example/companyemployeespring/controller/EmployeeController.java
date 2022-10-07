@@ -1,9 +1,7 @@
 package com.example.companyemployeespring.controller;
 
-import com.example.companyemployeespring.entity.Company;
 import com.example.companyemployeespring.entity.Employee;
 import com.example.companyemployeespring.repository.EmployeeRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

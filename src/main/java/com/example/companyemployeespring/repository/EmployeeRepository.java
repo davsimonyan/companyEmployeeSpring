@@ -1,6 +1,5 @@
 package com.example.companyemployeespring.repository;
 
-import com.example.companyemployeespring.entity.Company;
 import com.example.companyemployeespring.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
