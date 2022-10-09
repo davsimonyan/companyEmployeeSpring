@@ -2,10 +2,9 @@ package com.example.companyemployeespring.service;
 
 import com.example.companyemployeespring.entity.User;
 import com.example.companyemployeespring.repository.UserRepository;
+import com.example.companyemployeespring.util.DateUtil;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +21,11 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final DateUtil dateUtil;
 
-//    @Value("${task.management.images.folder}")
+    private final MailService mailService;
+
+    //    @Value("${task.management.images.folder}")
     private String folderPath;
 
 
@@ -39,6 +41,9 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);
+        mailService.sendEmail(user.getEmail(), "Welocome",
+                "Hi" + user.getName() + "\n" +
+                        "You have successfully registered!!!");
     }
 
     public byte[] getUserImage(String fileName) throws IOException {

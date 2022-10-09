@@ -1,5 +1,6 @@
 package com.example.companyemployeespring.controller;
 
+import com.example.companyemployeespring.entity.Company;
 import com.example.companyemployeespring.entity.User;
 import com.example.companyemployeespring.repository.CompanyRepository;
 import com.example.companyemployeespring.repository.UserRepository;
@@ -68,6 +69,7 @@ public class UserController {
         userService.saveUser(user);
         return "redirect:/";
     }
+
 
 
 //    @GetMapping(value = "/users/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
